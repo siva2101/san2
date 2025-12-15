@@ -1,24 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Don't rewrite if the requested file or directory exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Rewrite everything else to index.html
+  RewriteRule . /index.html [L]
+</IfModule>
 
-# ============================================================
-# Next.js Static Export - URL Rewriting Rules
-# ============================================================
-# These rules allow direct URL access and page reloads to work
-# by redirecting all non-existent paths to index.html
+# Disable MultiViews to prevent Apache from trying to guess file extensions
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
 
-RewriteEngine On
-
-# Don't rewrite if the requested file or directory exists
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-# Rewrite all other requests to index.html for Next.js client-side routing
-RewriteRule ^(.*)$ /index.html [L,QSA]
-
-# Enable following symlinks (may be required on some servers)
-Options +FollowSymLinks
-
-# Disable directory browsing for security
-Options -Indexes
-
-# Handle 404 errors by showing the app (Next.js will handle routing)
+# Handle 404 errors
 ErrorDocument 404 /index.html
