@@ -16,7 +16,7 @@ const bannerSlides = [
         mobile: "https://placehold.co/800x1200/222/fff?text=Modern+Architecture+Mobile",
         alt: "Modern minimalist creative office space",
         title: "Eco-Friendly Design",
-        description: "Sustainable architecture for a better tomorrow",
+        description: "Sustainable architecture for a better tomorrow 1",
     },
     {
         id: 2,
