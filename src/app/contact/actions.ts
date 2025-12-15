@@ -81,7 +81,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<ActionRes
 
         await transporter.sendMail({
             from: `"${name}" <${email}>`, // sender address
-            to: "myemail@sanskriti.com", // list of receivers
+            to: "sans@dropjar.com", // list of receivers
             subject: `New Contact Inquiry from ${name}`, // Subject line
             text: message, // plain text body
             html: `
