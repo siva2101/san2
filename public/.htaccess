@@ -1,19 +1,8 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  
-  # Don't rewrite if the requested file or directory exists
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  
-  # Rewrite everything else to index.html
-  RewriteRule . /index.html [L]
-</IfModule>
+# TEST FILE - Check if .htaccess is being read
+# If you see "500 Internal Server Error" when visiting your site,
+# it means .htaccess IS being read (syntax error is intentional)
 
-# Disable MultiViews to prevent Apache from trying to guess file extensions
-<IfModule mod_negotiation.c>
-  Options -MultiViews
-</IfModule>
+INTENTIONAL_ERROR_TO_TEST_IF_HTACCESS_WORKS
 
-# Handle 404 errors
-ErrorDocument 404 /index.html
+# If you still see your site normally, .htaccess is NOT being read
+# This means AllowOverride is set to None

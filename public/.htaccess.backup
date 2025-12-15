@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Don't rewrite if the requested file or directory exists
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Rewrite everything else to index.html
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Disable MultiViews to prevent Apache from trying to guess file extensions
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+# Handle 404 errors
+ErrorDocument 404 /index.html
