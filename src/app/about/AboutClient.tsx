@@ -1,19 +1,19 @@
 'use client';
 
-import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, MotionValue, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
-const fadeInUp = {
+const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
     }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
     visible: {
         transition: {
             staggerChildren: 0.15
