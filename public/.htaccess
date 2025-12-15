@@ -1,8 +1,16 @@
-# TEST FILE - Check if .htaccess is being read
-# If you see "500 Internal Server Error" when visiting your site,
-# it means .htaccess IS being read (syntax error is intentional)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # If an existing asset or directory is requested, serve it directly
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Otherwise rewrite to index.html
+  RewriteRule ^ index.html [L]
+</IfModule>
 
-INTENTIONAL_ERROR_TO_TEST_IF_HTACCESS_WORKS
-
-# If you still see your site normally, .htaccess is NOT being read
-# This means AllowOverride is set to None
+# Disable MultiViews to prevent Apache from trying to guess file extensions
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
