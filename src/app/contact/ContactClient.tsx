@@ -149,7 +149,7 @@ export default function ContactClient() {
                                 {status.message}
                             </div>
                         )}
-
+                        {/* Contact Form 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-stone-500 mb-2 uppercase tracking-wide">Name</label>
@@ -188,7 +188,6 @@ export default function ContactClient() {
                                 />
                             </div>
 
-                            {/* ReCAPTCHA */}
                             <div className="flex justify-center md:justify-start">
                                 <ReCAPTCHA
                                     ref={captchaRef}
@@ -204,6 +203,7 @@ export default function ContactClient() {
                                 {isSubmitting ? 'Sending...' : 'Send Message'}
                             </button>
                         </form>
+                        */}
                     </motion.div>
 
                 </div>
