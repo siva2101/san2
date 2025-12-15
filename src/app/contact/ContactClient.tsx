@@ -3,45 +3,23 @@
 import { motion } from 'framer-motion';
 import { useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { sendContactEmail } from './actions';
-
 export default function ContactClient() {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const captchaRef = useRef<ReCAPTCHA>(null);
+    // const captchaRef = useRef<ReCAPTCHA>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
         setStatus({ type: null, message: '' });
 
-        const captchaToken = captchaRef.current?.getValue();
-
-        if (!captchaToken) {
-            setStatus({ type: 'error', message: 'Please complete the CAPTCHA check.' });
+        // Simulator submission for static export
+        setTimeout(() => {
             setIsSubmitting(false);
-            return;
-        }
-
-        try {
-            const result = await sendContactEmail({
-                ...formState,
-                captchaToken: captchaToken || null
-            });
-
-            if (result.success) {
-                setStatus({ type: 'success', message: result.message });
-                setFormState({ name: '', email: '', message: '' });
-                captchaRef.current?.reset();
-            } else {
-                setStatus({ type: 'error', message: result.message });
-            }
-        } catch (error) {
-            setStatus({ type: 'error', message: 'An unexpected error occurred.' });
-        } finally {
-            setIsSubmitting(false);
-        }
+            setStatus({ type: 'success', message: 'Message sent successfully! (Simulation)' });
+            setFormState({ name: '', email: '', message: '' });
+        }, 1500);
     };
 
     return (
@@ -149,7 +127,6 @@ export default function ContactClient() {
                                 {status.message}
                             </div>
                         )}
-                        {/* Contact Form 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-stone-500 mb-2 uppercase tracking-wide">Name</label>
@@ -188,12 +165,14 @@ export default function ContactClient() {
                                 />
                             </div>
 
+                            {/*
                             <div className="flex justify-center md:justify-start">
                                 <ReCAPTCHA
                                     ref={captchaRef}
                                     sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // TEST SITE KEY from Google
                                 />
                             </div>
+                            */}
 
                             <button
                                 type="submit"
@@ -203,7 +182,6 @@ export default function ContactClient() {
                                 {isSubmitting ? 'Sending...' : 'Send Message'}
                             </button>
                         </form>
-                        */}
                     </motion.div>
 
                 </div>
