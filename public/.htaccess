@@ -18,12 +18,16 @@ Require valid-user
 
 RewriteEngine On
 
+# Set the base directory for rewrites
+# Change this if your app is in a subdirectory
+RewriteBase /
+
 # Don't rewrite if the requested file or directory exists
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Rewrite all other requests to index.html for Next.js client-side routing
-RewriteRule ^(.*)$ /index.html [L,QSA]
+RewriteRule ^(.*)$ index.html [L]
 
 # Enable following symlinks (may be required on some servers)
 Options +FollowSymLinks
