@@ -2,8 +2,16 @@
   RewriteEngine On
   RewriteBase /
   
-  # Serve .html files for clean URLs
-  # If /about is requested and about.html exists, serve it
+  # Prevent Apache from automatically adding trailing slashes to directories
+  # This prevents infinite loops when we redirect /about/ to /about
+  DirectorySlash Off
+
+  # Redirect trailing slashes to clean URLs (e.g. /about/ -> /about)
+  # Only do this if it's a directory that corresponds to an HTML file
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+  # Serve .html files for clean URLs (e.g. /about -> about.html)
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+)$ $1.html [L]
   
