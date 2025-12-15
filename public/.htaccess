@@ -1,14 +1,3 @@
-#----------------------------------------------------------------cp:ppd
-# Section managed by cPanel: Password Protected Directories     -cp:ppd
-# - Do not edit this section of the htaccess file!              -cp:ppd
-#----------------------------------------------------------------cp:ppd
-AuthType Basic
-AuthName "Protected 'public_html/sanskritiarchitects2026'"
-AuthUserFile "/home1/ybersmit/.htpasswds/public_html/sanskritiarchitects2026/passwd"
-Require valid-user
-#----------------------------------------------------------------cp:ppd
-# End section managed by cPanel: Password Protected Directories -cp:ppd
-#----------------------------------------------------------------cp:ppd
 
 # ============================================================
 # Next.js Static Export - URL Rewriting Rules
