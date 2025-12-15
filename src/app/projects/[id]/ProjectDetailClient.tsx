@@ -22,45 +22,49 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
-      <Link href="/projects" className="inline-block text-green-600 no-underline mb-8 font-medium hover:text-green-700 transition-colors">
-        ← Back to Projects
-      </Link>
+    <div className="w-full pb-12">
+      {/* Header Section - Constrained */}
+      <div className="max-w-4xl mx-auto px-4 pt-8 pb-8">
+        <Link href="/projects" className="inline-block text-green-600 no-underline mb-8 font-medium hover:text-green-700 transition-colors">
+          ← Back to Projects
+        </Link>
 
-      <div className="mb-8">
-        <h1 className="text-4xl md:text-5xl my-0 mb-2 text-zinc-800">{project.title}</h1>
-        <p className="text-green-600 text-base font-semibold uppercase m-0">{project.category}</p>
+        <div>
+          <h1 className="text-4xl md:text-5xl my-0 mb-2 text-zinc-800">{project.title}</h1>
+          <p className="text-green-600 text-base font-semibold uppercase m-0">{project.category}</p>
+        </div>
       </div>
 
-      {/* Main Image Gallery with Swiper */}
-      <div className="mb-12 bg-white rounded-lg overflow-hidden shadow-md">
-        {/* Main Swiper */}
+      {/* Main Image Gallery - Full Bleed */}
+      <div className="w-full h-[50vh] md:h-[75vh] mb-8 bg-zinc-100">
         <Swiper
           modules={[Navigation, Pagination, Thumbs]}
-          spaceBetween={10}
+          spaceBetween={0}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-          className="main-swiper"
+          className="main-swiper w-full h-full [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-pagination-bullet-active]:bg-green-500 [&_.swiper-pagination-bullet]:bg-white"
         >
           {project.images.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="w-full bg-gray-100">
+              <div className="w-full h-full relative">
                 <Image
                   src={image}
                   alt={`${project.title} - Image ${index + 1}`}
-                  width={800}
-                  height={600}
-                  style={{ objectFit: "cover", width: "100%", height: "auto" }}
+                  fill
+                  className="object-cover"
                   priority={index === 0}
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
 
-        {/* Thumbnail Swiper */}
-        {project.images.length > 1 && (
+      {/* Thumbnails - Constrained */}
+      {project.images.length > 1 && (
+        <div className="max-w-4xl mx-auto px-4 mb-12">
           <Swiper
             onSwiper={setThumbsSwiper}
             modules={[Thumbs]}
@@ -91,37 +95,39 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </SwiperSlide>
             ))}
           </Swiper>
-        )}
-      </div>
+        </div>
+      )}
 
-      {/* Project Details */}
-      <div className="bg-white rounded-lg p-8 shadow-md">
-        <div>
-          <h2 className="mt-0 text-zinc-800 text-3xl">Project Details</h2>
-          <p>{project.details}</p>
+      {/* Project Details - Constrained */}
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="bg-white rounded-lg p-0 md:p-8">
+          <div>
+            <h2 className="mt-0 text-zinc-800 text-3xl">Project Details</h2>
+            <p>{project.details}</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-8 py-8 border-t border-b border-gray-200">
-            <div>
-              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Location</h4>
-              <p className="m-0 text-zinc-800 text-lg">{project.location}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-8 py-8 border-t border-b border-gray-200">
+              <div>
+                <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Location</h4>
+                <p className="m-0 text-zinc-800 text-lg">{project.location}</p>
+              </div>
+              <div>
+                <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Year</h4>
+                <p className="m-0 text-zinc-800 text-lg">{project.year}</p>
+              </div>
+              <div>
+                <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Architect</h4>
+                <p className="m-0 text-zinc-800 text-lg">{project.architect}</p>
+              </div>
+              <div>
+                <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Area</h4>
+                <p className="m-0 text-zinc-800 text-lg">{project.area}</p>
+              </div>
             </div>
-            <div>
-              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Year</h4>
-              <p className="m-0 text-zinc-800 text-lg">{project.year}</p>
-            </div>
-            <div>
-              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Architect</h4>
-              <p className="m-0 text-zinc-800 text-lg">{project.architect}</p>
-            </div>
-            <div>
-              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Area</h4>
-              <p className="m-0 text-zinc-800 text-lg">{project.area}</p>
-            </div>
-          </div>
 
-          <div className="mt-8">
-            <h3 className="text-zinc-800 mb-4">About This Project</h3>
-            <p className="text-zinc-600 leading-relaxed text-base">{project.description}</p>
+            <div className="mt-8">
+              <h3 className="text-zinc-800 mb-4">About This Project</h3>
+              <p className="text-zinc-600 leading-relaxed text-base">{project.description}</p>
+            </div>
           </div>
         </div>
       </div>
