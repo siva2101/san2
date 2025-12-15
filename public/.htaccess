@@ -2,15 +2,23 @@
   RewriteEngine On
   RewriteBase /
   
-  # If an existing asset or directory is requested, serve it directly
+  # Serve .html files for clean URLs
+  # If /about is requested and about.html exists, serve it
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+  
+  # If the requested file or directory exists, serve it
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   
-  # Otherwise rewrite to index.html
+  # Otherwise fallback to index.html for client-side routing
   RewriteRule ^ index.html [L]
 </IfModule>
 
-# Disable MultiViews to prevent Apache from trying to guess file extensions
+# Disable directory listing
+Options -Indexes
+
+# Disable MultiViews
 <IfModule mod_negotiation.c>
   Options -MultiViews
 </IfModule>
