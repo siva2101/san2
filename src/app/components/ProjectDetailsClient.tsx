@@ -2,9 +2,18 @@
 
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Thumbs } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+import { useState } from "react";
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/thumbs';
 
 // Define the necessary structure for the project data passed as a prop
 interface ProjectData {
@@ -27,21 +36,7 @@ interface ProjectDetailsClientProps {
 export default function ProjectDetailsClient({
   project,
 }: ProjectDetailsClientProps) {
-  // State for the image gallery
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
-  // Functions for circular image navigation
-  const nextImage = () => {
-    setSelectedImageIndex((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevImage = () => {
-    setSelectedImageIndex((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
-    );
-  };
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   // We assume 'project' is always valid here, as the server component handled the 'Not Found' case.
   return (
@@ -51,58 +46,69 @@ export default function ProjectDetailsClient({
       </Link>
 
       <div className="project-detail-header">
-        <h1>22{project.title}</h1>
+        <h1>{project.title}</h1>
         <p className="project-category">{project.category}</p>
       </div>
 
-      {/* Main Image Gallery */}
+      {/* Main Image Gallery with Swiper */}
       <div className="gallery-section">
-        <div className="main-image">
-          <Image
-            src={project.images[selectedImageIndex]}
-            alt={`${project.title} - Image ${selectedImageIndex + 1}`}
-            width={800}
-            height={600}
-            style={{ objectFit: "cover", width: "100%", height: "auto" }}
-            priority
-          />
-        </div>
-
-        {project.images.length > 1 && (
-          <div className="gallery-controls">
-            <button onClick={prevImage} className="nav-button prev">
-              ← Previous
-            </button>
-            <span className="image-counter">
-              {selectedImageIndex + 1} / {project.images.length}
-            </span>
-            <button onClick={nextImage} className="nav-button next">
-              Next →
-            </button>
-          </div>
-        )}
-
-        {/* Thumbnail Strip */}
-        {project.images.length > 1 && (
-          <div className="thumbnail-strip">
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                className={`thumbnail ${
-                  index === selectedImageIndex ? "active" : ""
-                }`}
-                onClick={() => setSelectedImageIndex(index)}
-              >
+        {/* Main Swiper */}
+        <Swiper
+          modules={[Navigation, Pagination, Thumbs]}
+          spaceBetween={10}
+          navigation
+          pagination={{ clickable: true }}
+          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+          className="main-swiper"
+        >
+          {project.images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <div className="main-image">
                 <Image
                   src={image}
-                  alt={`Thumbnail ${index + 1}`}
-                  width={100}
-                  height={75}
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  alt={`${project.title} - Image ${index + 1}`}
+                  width={800}
+                  height={600}
+                  style={{ objectFit: "cover", width: "100%", height: "auto" }}
+                  priority={index === 0}
                 />
               </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Thumbnail Swiper */}
+        {project.images.length > 1 && (
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            modules={[Thumbs]}
+            spaceBetween={10}
+            slidesPerView={4}
+            watchSlidesProgress
+            className="thumbnail-swiper"
+            breakpoints={{
+              640: {
+                slidesPerView: 5,
+              },
+              768: {
+                slidesPerView: 6,
+              },
+            }}
+          >
+            {project.images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="thumbnail">
+                  <Image
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                    width={100}
+                    height={75}
+                    style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                  />
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         )}
       </div>
 
