@@ -22,18 +22,18 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
-    <div className="project-detail-container">
-      <Link href="/projects" className="back-link">
+    <div className="max-w-4xl mx-auto py-8 px-4">
+      <Link href="/projects" className="inline-block text-green-600 no-underline mb-8 font-medium hover:text-green-700 transition-colors">
         ← Back to Projects
       </Link>
 
-      <div className="project-detail-header">
-        <h1>{project.title}</h1>
-        <p className="project-category">{project.category}</p>
+      <div className="mb-8">
+        <h1 className="text-4xl md:text-5xl my-0 mb-2 text-zinc-800">{project.title}</h1>
+        <p className="text-green-600 text-base font-semibold uppercase m-0">{project.category}</p>
       </div>
 
       {/* Main Image Gallery with Swiper */}
-      <div className="gallery-section">
+      <div className="mb-12 bg-white rounded-lg overflow-hidden shadow-md">
         {/* Main Swiper */}
         <Swiper
           modules={[Navigation, Pagination, Thumbs]}
@@ -45,7 +45,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         >
           {project.images.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="main-image">
+              <div className="w-full bg-gray-100">
                 <Image
                   src={image}
                   alt={`${project.title} - Image ${index + 1}`}
@@ -95,33 +95,33 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       </div>
 
       {/* Project Details */}
-      <div className="project-details">
-        <div className="details-content">
-          <h2>Project Details</h2>
+      <div className="bg-white rounded-lg p-8 shadow-md">
+        <div>
+          <h2 className="mt-0 text-zinc-800 text-3xl">Project Details</h2>
           <p>{project.details}</p>
 
-          <div className="details-grid">
-            <div className="detail-item">
-              <h4>Location</h4>
-              <p>{project.location}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-8 py-8 border-t border-b border-gray-200">
+            <div>
+              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Location</h4>
+              <p className="m-0 text-zinc-800 text-lg">{project.location}</p>
             </div>
-            <div className="detail-item">
-              <h4>Year</h4>
-              <p>{project.year}</p>
+            <div>
+              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Year</h4>
+              <p className="m-0 text-zinc-800 text-lg">{project.year}</p>
             </div>
-            <div className="detail-item">
-              <h4>Architect</h4>
-              <p>{project.architect}</p>
+            <div>
+              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Architect</h4>
+              <p className="m-0 text-zinc-800 text-lg">{project.architect}</p>
             </div>
-            <div className="detail-item">
-              <h4>Area</h4>
-              <p>{project.area}</p>
+            <div>
+              <h4 className="my-0 mb-2 text-green-600 text-xs uppercase font-semibold">Area</h4>
+              <p className="m-0 text-zinc-800 text-lg">{project.area}</p>
             </div>
           </div>
 
-          <div className="description-section">
-            <h3>About This Project</h3>
-            <p>{project.description}</p>
+          <div className="mt-8">
+            <h3 className="text-zinc-800 mb-4">About This Project</h3>
+            <p className="text-zinc-600 leading-relaxed text-base">{project.description}</p>
           </div>
         </div>
       </div>

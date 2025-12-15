@@ -21,11 +21,13 @@ export default async function ProjectDetail({ params }: ProjectDetailPageProps) 
 
   if (!project) {
     return (
-      <div className="project-detail-container">
-        <div className="project-not-found">
-          <h1>Project Not Found</h1>
-          <p>Sorry, the project you're looking for doesn't exist.</p>
-          <Link href="/projects">← Back to Projects</Link>
+      <div className="max-w-4xl mx-auto py-8 px-4">
+        <div className="text-center py-12 px-4">
+          <h1 className="text-zinc-800">Project Not Found</h1>
+          <p>The project you are looking for does not exist.</p>
+          <a href="/projects" className="inline-block text-green-600 no-underline mt-4 font-medium">
+            ← Back to Projects
+          </a>
         </div>
       </div>
     );
