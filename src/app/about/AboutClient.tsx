@@ -173,7 +173,7 @@ export default function AboutClient() {
                                 transition={{ delay: 0.4, duration: 0.8 }}
                                 className="absolute -bottom-10 -right-10 w-48 h-48 bg-green-50 rounded-full flex items-center justify-center hidden md:flex mix-blend-multiply"
                             >
-                                <p className="font-serif text-green-900 text-center p-4 italic">"Simplicity is the ultimate sophistication"</p>
+                                <p className="text-green-900 text-center p-4 italic">"Simplicity is the ultimate sophistication"</p>
                             </motion.div>
                         </div>
 

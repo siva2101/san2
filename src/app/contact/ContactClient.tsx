@@ -38,7 +38,7 @@ export default function ContactClient() {
                     <span className="inline-block py-1 px-3 mb-6 border border-white/30 rounded-full text-xs font- tracking-widest uppercase bg-white/10 backdrop-blur-sm">
                         Get in Touch
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight font-serif italic">Let's Build Together</h1>
+                    <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight italic">Let's Build Together</h1>
                     <p className="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto font-light">
                         Ready to start your next project? We are here to listen.
                     </p>
@@ -57,7 +57,7 @@ export default function ContactClient() {
                         className="space-y-12"
                     >
                         <div>
-                            <h2 className="text-4xl font-serif text-stone-900 mb-6">Contact Details</h2>
+                            <h2 className="text-4xl text-stone-900 mb-6">Contact Details</h2>
                             <p className="text-stone-600 text-lg leading-relaxed max-w-md">
                                 Reach out to us directly or visit our studio to discuss your vision over a cup of coffee.
                             </p>
@@ -121,7 +121,7 @@ export default function ContactClient() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="bg-white p-10 md:p-14 rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-100"
                     >
-                        <h2 className="text-3xl font-serif text-stone-900 mb-8">Send a Message</h2>
+                        <h2 className="text-3xl text-stone-900 mb-8">Send a Message</h2>
                         {status.message && (
                             <div className={`p-4 mb-6 rounded-lg ${status.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
                                 {status.message}
