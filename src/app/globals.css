@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-width: 360px;
+  font-family: var(--font-roboto), sans-serif;
 }
 
 main {
