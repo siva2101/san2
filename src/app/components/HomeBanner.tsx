@@ -38,7 +38,7 @@ const bannerSlides = [
 
 export default function HomeBanner() {
     return (
-        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-zinc-900">
+        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl">
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={0}
