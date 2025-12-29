@@ -43,7 +43,7 @@ main {
 .main-swiper .swiper-button-next,
 .main-swiper .swiper-button-prev {
   color: var(--color-sansRed);
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent !important;
   width: 40px;
   height: 40px;
   border-radius: 50%;

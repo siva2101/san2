@@ -44,7 +44,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           navigation
           pagination={{ clickable: true }}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-          className="main-swiper w-full h-full [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-pagination-bullet-active]:bg-sansRed [&_.swiper-pagination-bullet]:bg-white"
+          className="main-swiper w-full h-full"
         >
           {project.images.map((image, index) => (
             <SwiperSlide key={index}>

@@ -53,7 +53,7 @@ export default function HomeBanner() {
                     dynamicBullets: true,
                 }}
                 navigation={true}
-                className="w-full h-full [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-pagination-bullet-active]:bg-sansRed [&_.swiper-pagination-bullet]:bg-white"
+                className="main-swiper w-full h-full"
             >
                 {bannerSlides.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative w-full h-full">
