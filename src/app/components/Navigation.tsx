@@ -1,12 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { usePathname } from "next/navigation";
+import { projects } from "@/data/projects";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+
+  // Extract unique categories for the submenu
+  const categories = useMemo(() => {
+    return Array.from(new Set(projects.map((p) => p.category))).sort();
+  }, []);
 
   useEffect(() => {
     // Initialize lastScrollY to avoid incorrect direction detection on initial scroll
@@ -58,6 +66,18 @@ export default function Navigation() {
   const navClasses = `bg-sansGray p-4 sticky top-0 z-50 transition-transform duration-300 ${isVisible || isOpen ? "translate-y-0" : "-translate-y-full"
     }`;
 
+  // Helper to determine active state
+  const getLinkClass = (path: string, mobile = false) => {
+    const isActive = pathname === path || (path !== '/' && pathname?.startsWith(path));
+    const baseClass = "no-underline transition-colors";
+
+    if (mobile) {
+      return `block py-4 px-6 ${isActive ? 'text-sansRed' : 'text-white hover:text-sansRed hover:bg-white/5'}`;
+    }
+
+    return `${baseClass} font-medium ${isActive ? 'text-sansRed' : 'text-white hover:text-sansRed'}`;
+  };
+
   return (
     <>
       <nav className={navClasses}>
@@ -70,24 +90,42 @@ export default function Navigation() {
             </div>
 
             {/* Desktop Navigation */}
-            <ul className="flex gap-8 list-none m-0 p-0 hidden lg:flex">
+            <ul className="flex gap-8 list-none m-0 p-0 hidden lg:flex items-center">
               <li>
-                <Link href="/" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
+                <Link href="/" className={getLinkClass('/')}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
+                <Link href="/about" className={getLinkClass('/about')}>
                   About
                 </Link>
               </li>
-              <li>
-                <Link href="/projects" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
+              <li className="relative group">
+                <Link href="/projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
                   Our Projects
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </Link>
+                {/* Flyout Submenu */}
+                <div className="absolute left-0 top-full pt-4 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <ul className="bg-white rounded-lg shadow-xl overflow-hidden py-2 m-0 list-none border border-gray-100">
+                    {categories.map((category) => (
+                      <li key={category}>
+                        <Link
+                          href={`/projects?category=${encodeURIComponent(category)}`}
+                          className="block px-4 py-2.5 text-sm text-sansGray hover:bg-sansRed/5 hover:text-sansRed transition-colors"
+                        >
+                          {category}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </li>
               <li>
-                <Link href="/contact" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
+                <Link href="/contact" className={getLinkClass('/contact')}>
                   Contact Us
                 </Link>
               </li>
@@ -109,12 +147,12 @@ export default function Navigation() {
 
       {/* Mobile Off-Canvas Menu */}
       <div className={`fixed top-0 right-0 w-64 h-screen bg-sansGray pt-20 z-40 transition-transform lg:!hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <ul className="list-none m-0 p-0">
+        <ul className="list-none m-0 p-0 h-full overflow-y-auto">
           <li className="border-b border-white/20">
             <Link
               href="/"
               onClick={() => setIsOpen(false)}
-              className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
+              className={getLinkClass('/', true)}
             >
               Home
             </Link>
@@ -123,7 +161,7 @@ export default function Navigation() {
             <Link
               href="/about"
               onClick={() => setIsOpen(false)}
-              className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
+              className={getLinkClass('/about', true)}
             >
               About
             </Link>
@@ -132,16 +170,30 @@ export default function Navigation() {
             <Link
               href="/projects"
               onClick={() => setIsOpen(false)}
-              className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
+              className={getLinkClass('/projects', true)}
             >
               Our Projects
             </Link>
+            {/* Mobile Submenu */}
+            <ul className="list-none bg-black/20 m-0 p-0">
+              {categories.map((category) => (
+                <li key={category}>
+                  <Link
+                    href={`/projects?category=${encodeURIComponent(category)}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block py-3 px-10 text-sm text-white/80 hover:text-sansRed transition-colors"
+                  >
+                    {category}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </li>
           <li className="border-b border-white/20">
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
+              className={getLinkClass('/contact', true)}
             >
               Contact Us
             </Link>
