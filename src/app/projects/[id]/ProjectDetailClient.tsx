@@ -114,10 +114,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <h4 className="my-0 mb-2 text-sansRed text-xs uppercase font-semibold">Year</h4>
                 <p className="m-0 text-sansGray text-lg">{project.year}</p>
               </div>
-              <div>
-                <h4 className="my-0 mb-2 text-sansRed text-xs uppercase font-semibold">Architect</h4>
-                <p className="m-0 text-sansGray text-lg">{project.architect}</p>
-              </div>
+
               <div>
                 <h4 className="my-0 mb-2 text-sansRed text-xs uppercase font-semibold">Area</h4>
                 <p className="m-0 text-sansGray text-lg">{project.area}</p>
