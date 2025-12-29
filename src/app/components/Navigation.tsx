@@ -7,11 +7,11 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-zinc-800 p-4">
+    <nav className="bg-sansGray p-4">
       <div className="max-w-screen-xl mx-auto">
         <div className="flex items-center justify-between">
           <div>
-            <Link href="/" className="text-green-600 hover:text-green-700 font-bold text-2xl no-underline transition-colors">
+            <Link href="/" className="text-sansRed hover:text-sansRed font-bold text-2xl no-underline transition-colors">
               [LOGO]
             </Link>
           </div>
@@ -19,22 +19,22 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <ul className="flex gap-8 list-none m-0 p-0 hidden lg:flex">
             <li>
-              <Link href="/" className="text-white no-underline font-medium hover:text-green-600 transition-colors">
+              <Link href="/" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-white no-underline font-medium hover:text-green-600 transition-colors">
+              <Link href="/about" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/projects" className="text-white no-underline font-medium hover:text-green-600 transition-colors">
+              <Link href="/projects" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
                 Our Projects
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-white no-underline font-medium hover:text-green-600 transition-colors">
+              <Link href="/contact" className="text-white no-underline font-medium hover:text-sansRed transition-colors">
                 Contact Us
               </Link>
             </li>
@@ -53,40 +53,40 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Off-Canvas Menu */}
-        <div className={`fixed top-0 right-0 w-64 h-screen bg-zinc-900 pt-20 z-50 transition-transform lg:!hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className={`fixed top-0 right-0 w-64 h-screen bg-sansGray pt-20 z-50 transition-transform lg:!hidden ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
           <ul className="list-none m-0 p-0">
-            <li className="border-b border-zinc-700">
+            <li className="border-b border-white/20">
               <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="block py-4 px-6 text-white no-underline hover:bg-zinc-800 hover:text-green-600 transition-colors"
+                className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
               >
                 Home
               </Link>
             </li>
-            <li className="border-b border-zinc-700">
+            <li className="border-b border-white/20">
               <Link
                 href="/about"
                 onClick={() => setIsOpen(false)}
-                className="block py-4 px-6 text-white no-underline hover:bg-zinc-800 hover:text-green-600 transition-colors"
+                className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
               >
                 About
               </Link>
             </li>
-            <li className="border-b border-zinc-700">
+            <li className="border-b border-white/20">
               <Link
                 href="/projects"
                 onClick={() => setIsOpen(false)}
-                className="block py-4 px-6 text-white no-underline hover:bg-zinc-800 hover:text-green-600 transition-colors"
+                className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
               >
                 Our Projects
               </Link>
             </li>
-            <li className="border-b border-zinc-700">
+            <li className="border-b border-white/20">
               <Link
                 href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block py-4 px-6 text-white no-underline hover:bg-zinc-800 hover:text-green-600 transition-colors"
+                className="block py-4 px-6 text-white no-underline hover:bg-white/5 hover:text-sansRed transition-colors"
               >
                 Contact Us
               </Link>

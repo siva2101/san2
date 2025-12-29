@@ -2,6 +2,12 @@
 @theme {
   --font-sans: 'Roboto', sans-serif;
   --font-heading: 'Playfair Display', serif;
+
+  /* Brand Palette (Single Green - Renamed to sansRed) */
+  --color-sansRed: #22c55e;
+
+  /* Neutral Palette (Single sansGray) */
+  --color-sansGray: #333333;
 }
 
 @import "tailwindcss";
@@ -36,7 +42,7 @@ main {
 
 .main-swiper .swiper-button-next,
 .main-swiper .swiper-button-prev {
-  color: #4CAF50;
+  color: var(--color-sansRed);
   background: rgba(255, 255, 255, 0.9);
   width: 40px;
   height: 40px;
@@ -49,16 +55,16 @@ main {
 }
 
 .main-swiper .swiper-pagination-bullet {
-  background: #4CAF50;
+  background: var(--color-sansRed);
 }
 
 .main-swiper .swiper-pagination-bullet-active {
-  background: #45a049;
+  background: var(--color-sansRed);
 }
 
 .thumbnail-swiper {
   padding: 1rem;
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 
 .thumbnail-swiper .swiper-slide {
@@ -80,9 +86,9 @@ main {
 }
 
 .thumbnail-swiper .swiper-slide-thumb-active .thumbnail {
-  border-color: #4CAF50;
+  border-color: var(--color-sansRed);
 }
 
 .thumbnail-swiper .thumbnail:hover {
-  border-color: #4CAF50;
+  border-color: var(--color-sansRed);
 }

@@ -26,17 +26,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Content Slide-up Animation */}
         <div className="absolute inset-x-0 bottom-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-          <p className="text-green-400 text-xs font-bold uppercase tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 translate-y-2 group-hover:translate-y-0">
+          <span className="text-white text-sm font-semibold border-b border-sansRed pb-1">
             {project.category}
-          </p>
+          </span>
           <h3 className="text-white text-2xl font-bold mb-2 leading-tight">
             {project.title}
           </h3>
           <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-[max-height] duration-500 ease-in-out">
-            <p className="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+            <p className="text-white/70 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 translate-y-2 group-hover:translate-y-0">
               {project.shortDescription}
             </p>
-            <span className="text-white text-sm font-semibold border-b border-green-500 pb-1">
+            <span className="text-white text-sm font-semibold border-b border-sansRed pb-1">
               View Details
             </span>
           </div>

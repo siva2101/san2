@@ -92,7 +92,7 @@ export default function AboutClient() {
     });
 */
     return (
-        <div ref={containerRef} className="min-h-screen bg-white text-gray-900 font-sans selection:bg-green-200">
+        <div ref={containerRef} className="min-h-screen bg-white text-sansGray font-sans selection:bg-sansRed">
 
             {/* Progress Bar 
             <motion.div
@@ -126,25 +126,25 @@ export default function AboutClient() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="inline-block py-1 px-4 rounded-full border border-green-600/30 text-green-700 text-sm font-semibold tracking-widest uppercase mb-6 bg-white/50 backdrop-blur-sm">
+                        <span className="inline-block py-1 px-4 rounded-full border border-sansRed/30 text-sansRed text-sm font-semibold tracking-widest uppercase mb-6 bg-white/50 backdrop-blur-sm">
                             Est. 2024
                         </span>
                     </motion.div>
 
                     <motion.h1
-                        className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 text-slate-900"
+                        className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 text-sansGray"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         Building the <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-br from-green-600 to-emerald-900">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-br from-sansRed to-sansRed">
                             Future Today
                         </span>
                     </motion.h1>
 
                     <motion.p
-                        className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light"
+                        className="text-xl md:text-2xl text-sansGray/60 max-w-2xl mx-auto leading-relaxed font-light"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 0.4 }}
@@ -171,9 +171,9 @@ export default function AboutClient() {
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.4, duration: 0.8 }}
-                                className="absolute -bottom-10 -right-10 w-48 h-48 bg-green-50 rounded-full flex items-center justify-center hidden md:flex mix-blend-multiply"
+                                className="absolute -bottom-10 -right-10 w-48 h-48 bg-sansRed rounded-full flex items-center justify-center hidden md:flex mix-blend-multiply"
                             >
-                                <p className="text-green-900 text-center p-4 italic">"Simplicity is the ultimate sophistication"</p>
+                                <p className="text-sansRed text-center p-4 italic">"Simplicity is the ultimate sophistication"</p>
                             </motion.div>
                         </div>
 
@@ -184,10 +184,10 @@ export default function AboutClient() {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={staggerContainer}
                         >
-                            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                                Crafting Spaces <br /> That <span className="text-green-600">Inspire</span>
+                            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold text-sansGray leading-tight">
+                                Crafting Spaces <br /> That <span className="text-sansRed">Inspire</span>
                             </motion.h2>
-                            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+                            <div className="space-y-6 text-lg text-sansGray/60 leading-relaxed">
                                 <motion.p variants={fadeInUp}>
                                     Sanskriti isn't just a construction company; it's a philosophy. Born from a desire to integrate nature with structure,
                                     we began our journey with a single residential project that challenged the status quo.
@@ -198,14 +198,14 @@ export default function AboutClient() {
                                 </motion.p>
                             </div>
 
-                            <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-100">
+                            <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-8 pt-8 border-t border-sansGray/10">
                                 <div>
-                                    <h4 className="text-5xl font-bold text-slate-800 mb-2">50+</h4>
-                                    <span className="text-sm text-gray-500 uppercase tracking-widest">Projects</span>
+                                    <h4 className="text-5xl font-bold text-sansGray mb-2">50+</h4>
+                                    <span className="text-sm text-sansGray/50 uppercase tracking-widest">Projects</span>
                                 </div>
                                 <div>
-                                    <h4 className="text-5xl font-bold text-slate-800 mb-2">12</h4>
-                                    <span className="text-sm text-gray-500 uppercase tracking-widest">Awards</span>
+                                    <h4 className="text-5xl font-bold text-sansGray mb-2">12</h4>
+                                    <span className="text-sm text-sansGray/50 uppercase tracking-widest">Awards</span>
                                 </div>
                             </motion.div>
                         </motion.div>
@@ -217,9 +217,9 @@ export default function AboutClient() {
             <SectionDivider src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" />
 
             {/* Values Section */}
-            <section className="py-32 bg-slate-50 relative overflow-hidden">
+            <section className="py-32 bg-sansGray/5 relative overflow-hidden">
                 {/* Decorative blob */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sansRed/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
                 <div className="container mx-auto px-6 max-w-7xl relative z-10">
                     <motion.div
@@ -229,8 +229,8 @@ export default function AboutClient() {
                         viewport={{ once: true }}
                         variants={fadeInUp}
                     >
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900">Our Core Values</h2>
-                        <p className="text-slate-500 max-w-2xl mx-auto text-lg">Foundations that stand the test of time.</p>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 text-sansGray">Our Core Values</h2>
+                        <p className="text-sansGray/50 max-w-2xl mx-auto text-lg">Foundations that stand the test of time.</p>
                     </motion.div>
 
                     <motion.div
@@ -274,10 +274,10 @@ export default function AboutClient() {
 
                                 <div className="relative z-10 p-8 transform transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
                                     <h3 className="text-2xl font-bold text-white mb-3">{value.title}</h3>
-                                    <p className="text-gray-300 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                                    <p className="text-white/70 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
                                         {value.desc}
                                     </p>
-                                    <div className="w-12 h-1 bg-green-500 mt-4 rounded-full" />
+                                    <div className="w-12 h-1 bg-sansRed mt-4 rounded-full" />
                                 </div>
                             </motion.div>
                         ))}
@@ -293,7 +293,7 @@ export default function AboutClient() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-green-950/80" />
+                <div className="absolute inset-0 bg-sansRed/80" />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <motion.div
@@ -307,7 +307,7 @@ export default function AboutClient() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-12 py-5 bg-white text-green-900 rounded-full font-bold text-lg shadow-2xl hover:bg-green-50 transition-colors"
+                            className="px-12 py-5 bg-white text-sansRed rounded-full font-bold text-lg shadow-2xl hover:bg-sansRed hover:text-white transition-colors"
                         >
                             Start Your Project
                         </motion.button>

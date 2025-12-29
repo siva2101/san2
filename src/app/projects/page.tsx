@@ -69,7 +69,7 @@ function ProjectsContent() {
   }, [selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-sansGray/5">
       <div className="max-w-screen-xl mx-auto py-20 px-6">
 
         <motion.div
@@ -78,10 +78,10 @@ function ProjectsContent() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-sansGray tracking-tight">
             Our Projects
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-xl text-sansGray/60 max-w-2xl mx-auto font-light leading-relaxed">
             Explore our portfolio of architectural designs and innovations, where every structure tells a story of purpose and precision.
           </p>
         </motion.div>
@@ -93,8 +93,8 @@ function ProjectsContent() {
               key={cat}
               onClick={() => handleCategoryChange(cat)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === cat
-                  ? 'bg-green-600 text-white shadow-lg shadow-green-600/30 scale-105'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-sansRed text-white shadow-lg shadow-sansRed/30 scale-105'
+                : 'bg-white text-sansGray/60 hover:bg-sansGray/5 border border-sansGray/20'
                 }`}
             >
               {cat}

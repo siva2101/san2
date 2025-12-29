@@ -38,7 +38,7 @@ const bannerSlides = [
 
 export default function HomeBanner() {
     return (
-        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl">
+        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-sansGray rounded-3xl overflow-hidden shadow-2xl">
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={0}
@@ -53,7 +53,7 @@ export default function HomeBanner() {
                     dynamicBullets: true,
                 }}
                 navigation={true}
-                className="w-full h-full [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-pagination-bullet-active]:bg-green-500 [&_.swiper-pagination-bullet]:bg-white"
+                className="w-full h-full [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-pagination-bullet-active]:bg-sansRed [&_.swiper-pagination-bullet]:bg-white"
             >
                 {bannerSlides.map((slide, index) => (
                     <SwiperSlide key={slide.id} className="relative w-full h-full">
@@ -90,13 +90,13 @@ export default function HomeBanner() {
                                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight drop-shadow-lg">
                                     {slide.title}
                                 </h2>
-                                <p className="text-lg md:text-2xl text-gray-200 font-light drop-shadow-md max-w-2xl mx-auto">
+                                <p className="text-lg md:text-2xl text-white/80 font-light drop-shadow-md max-w-2xl mx-auto">
                                     {slide.description}
                                 </p>
                                 <div className="pt-6">
                                     <a
                                         href="/projects"
-                                        className="inline-block px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded transition-colors duration-300"
+                                        className="inline-block px-8 py-3 bg-sansRed hover:bg-sansRed text-white font-medium rounded transition-colors duration-300"
                                     >
                                         View Projects
                                     </a>

@@ -23,9 +23,9 @@ export default async function ProjectDetail({ params }: ProjectDetailPageProps) 
     return (
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="text-center py-12 px-4">
-          <h1 className="text-zinc-800">Project Not Found</h1>
+          <h1 className="text-sansGray">Project Not Found</h1>
           <p>The project you are looking for does not exist.</p>
-          <a href="/projects" className="inline-block text-green-600 no-underline mt-4 font-medium">
+          <a href="/projects" className="inline-block text-sansRed no-underline mt-4 font-medium">
             ← Back to Projects
           </a>
         </div>
