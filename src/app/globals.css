@@ -1,3 +1,8 @@
+/* Tailwind v4 theme configuration - must come BEFORE @import */
+@theme {
+  --font-sans: 'Roboto', sans-serif;
+}
+
 @import "tailwindcss";
 
 body {
@@ -7,7 +12,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-width: 360px;
-  font-family: var(--font-roboto), sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 main {
