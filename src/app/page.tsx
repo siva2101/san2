@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Home | Sanskriti Architects",
+  description: "Explore the architectural vision of Sanskriti Architects. We design sustainable, modern spaces that redefine living and working environments in Kerala.",
+};
+
 import HomeBanner from "./components/HomeBanner";
 import Projects from "./projects/page";
 

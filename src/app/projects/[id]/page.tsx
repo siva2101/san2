@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import ProjectDetailClient from "./ProjectDetailClient";
@@ -6,6 +7,27 @@ interface ProjectDetailPageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateMetadata({ params }: ProjectDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.shortDescription || project.description.substring(0, 160),
+    openGraph: {
+      title: `${project.title} | Sanskriti Architects`,
+      description: project.shortDescription,
+      images: [project.thumbnail],
+    },
+  };
 }
 
 // This function generates the static paths for all projects

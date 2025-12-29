@@ -1,8 +1,8 @@
 import ContactClient from './ContactClient';
 
 export const metadata = {
-  title: 'Contact Us | Sanskriti',
-  description: 'Get in touch with Sanskriti Architects for your next residential or commercial project.',
+  title: 'Contact Us',
+  description: 'Reach out to Sanskriti Architects for inquiries, project consultations, or collaborations. Visit our Kochi office or contact us via phone or email.',
 };
 
 export default function ContactPage() {
