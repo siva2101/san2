@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import BackToTop from "./components/BackToTop";
+import QuickContact from "./components/QuickContact";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
           {children}
         </main>
         <BackToTop />
+        <QuickContact />
         <Footer />
       </body>
     </html>

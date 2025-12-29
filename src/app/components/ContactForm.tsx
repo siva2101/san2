@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-export default function ContactForm() {
+export default function ContactForm({ isModal = false }: { isModal?: boolean }) {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,11 +23,11 @@ export default function ContactForm() {
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: isModal ? 0 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white p-10 md:p-14 rounded-3xl shadow-xl shadow-sansGray/20 border border-sansGray/10"
+            className={`bg-white p-10 md:p-14 rounded-3xl shadow-xl shadow-sansGray/20 border border-sansGray/10 ${isModal ? 'shadow-none border-none p-0 md:p-0' : ''}`}
         >
             <h2 className="text-3xl text-sansGray mb-8">Send a Message</h2>
             {status.message && (
