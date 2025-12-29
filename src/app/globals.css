@@ -1,6 +1,7 @@
 /* Tailwind v4 theme configuration - must come BEFORE @import */
 @theme {
   --font-sans: 'Roboto', sans-serif;
+  --font-heading: 'Playfair Display', serif;
 }
 
 @import "tailwindcss";
@@ -13,6 +14,12 @@ body {
   min-height: 100vh;
   min-width: 360px;
   font-family: 'Roboto', sans-serif;
+}
+
+/* Apply Playfair Display to all h1, h2, h3 headings */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
 }
 
 main {
