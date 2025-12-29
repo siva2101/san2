@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <BackToTop />
         <Footer />
       </body>
     </html>
