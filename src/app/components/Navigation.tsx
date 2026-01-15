@@ -112,17 +112,17 @@ export default function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className={getLinkClass('/about')} onClick={(e) => pathname === '/about' && e.preventDefault()}>
+                <Link href="/sans-about" className={getLinkClass('/about')} onClick={(e) => pathname === '/about' && e.preventDefault()}>
                   About
-                  {pathname === '/about' && (
+                  {pathname === '/sans-about' && (
                     <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
                   )}
                 </Link>
               </li>
               <li className="relative group">
-                <Link href="/projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`} onClick={(e) => pathname?.startsWith('/projects') && e.preventDefault()}>
+                <Link href="/sans-projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`} onClick={(e) => pathname?.startsWith('/projects') && e.preventDefault()}>
                   Our Projects
-                  {pathname?.startsWith('/projects') && (
+                  {pathname?.startsWith('/sans-projects') && (
                     <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
                   )}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,9 +146,9 @@ export default function Navigation() {
                 </div>*/}
               </li>
               <li>
-                <Link href="/contact" className={getLinkClass('/contact')} onClick={(e) => pathname === '/contact' && e.preventDefault()}>
+                <Link href="/sans-contact" className={getLinkClass('/contact')} onClick={(e) => pathname === '/contact' && e.preventDefault()}>
                   Contact Us
-                  {pathname === '/contact' && (
+                  {pathname === '/sans-contact' && (
                     <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
                   )}
                 </Link>
