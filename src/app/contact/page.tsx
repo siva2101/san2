@@ -1,4 +1,5 @@
 import ContactClient from './ContactClient';
+import UnderConstruction from '../components/UnderConstruction';
 
 export const metadata = {
   title: 'Contact Us',
@@ -6,5 +7,6 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactClient />;
+  //return <ContactClient />;
+  return <UnderConstruction />;
 }

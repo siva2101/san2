@@ -1,4 +1,5 @@
 import ProjectsClient from "./ProjectsClient";
+import UnderConstruction from "../components/UnderConstruction";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +8,6 @@ export const metadata: Metadata = {
 };
 
 export default function OurProjects() {
-  return <ProjectsClient />;
+  //return <ProjectsClient />;
+  return <UnderConstruction />;
 }
