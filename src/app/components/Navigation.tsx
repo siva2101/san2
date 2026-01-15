@@ -97,18 +97,18 @@ export default function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className={getLinkClass('/about')}>
+                <Link href="/" className={getLinkClass('/about')}>
                   About
                 </Link>
               </li>
               <li className="relative group">
-                <Link href="/projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
+                <Link href="/" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
                   Our Projects
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </Link>
-                {/* Flyout Submenu */}
+                {/* Flyout Submenu 
                 <div className="absolute left-0 top-full pt-4 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <ul className="bg-white rounded-lg shadow-xl overflow-hidden py-2 m-0 list-none border border-gray-100">
                     {categories.map((category) => (
@@ -122,10 +122,10 @@ export default function Navigation() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div>*/}
               </li>
               <li>
-                <Link href="/contact" className={getLinkClass('/contact')}>
+                <Link href="/" className={getLinkClass('/contact')}>
                   Contact Us
                 </Link>
               </li>
