@@ -16,6 +16,18 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  themeColor: "#E35336",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Sanskriti",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#E35336",
 };
 
 export default function RootLayout({
