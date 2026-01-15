@@ -12,27 +12,27 @@ import "swiper/css/navigation";
 const bannerSlides = [
     {
         id: 1,
-        desktop: "https://placehold.co/1920x1080/222/fff?text=Modern+Architecture",
-        mobile: "https://placehold.co/800x1200/222/fff?text=Modern+Architecture+Mobile",
+        desktop: "/images/home-banner/01-desktop.jpg",
+        mobile: "/images/home-banner/01-mobile.jpg",
         alt: "Modern minimalist creative office space",
-        title: "Eco-Friendly Design",
-        description: "Sustainable architecture for a better tomorrow 1",
+        title: "Our Creative Studio",
+        description: "Where creativity meets functional design",
     },
     {
         id: 2,
-        desktop: "https://placehold.co/1920x1080/333/fff?text=Urban+Design",
-        mobile: "https://placehold.co/800x1200/333/fff?text=Urban+Design+Mobile",
-        alt: "Urban city planning concept",
-        title: "Urban Spaces",
-        description: "Integrating nature with metropolitan living",
+        desktop: "/images/home-banner/02-desktop.jpg",
+        mobile: "/images/home-banner/02-mobile.jpg",
+        alt: "Luxury interior design living room",
+        title: "Elegant Living Space",
+        description: "Blending luxury with everyday comfort",
     },
     {
         id: 3,
-        desktop: "https://placehold.co/1920x1080/444/fff?text=Interior+Elegance",
-        mobile: "https://placehold.co/800x1200/444/fff?text=Interior+Elegance+Mobile",
-        alt: "Luxury interior design living room",
-        title: "Luxury Interiors",
-        description: "Crafting spaces that breathe elegance",
+        desktop: "/images/home-banner/03-desktop.jpg",
+        mobile: "/images/home-banner/03-mobile.jpg",
+        alt: "Urban city planning concept",
+        title: "Masterful Architecture",
+        description: "Innovative exteriors with lasting appeal",
     },
 ];
 
@@ -45,14 +45,11 @@ export default function HomeBanner() {
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 50000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
-                pagination={{
-                    clickable: true,
-                    dynamicBullets: true,
-                }}
-                navigation={true}
+                pagination={false}
+                navigation={false}
                 className="main-swiper w-full h-full"
             >
                 {bannerSlides.map((slide, index) => (
@@ -98,7 +95,7 @@ export default function HomeBanner() {
                                         href="/"
                                         className="inline-block px-8 py-3 bg-sansRed hover:bg-sansRed text-white font-medium rounded transition-colors duration-300"
                                     >
-                                        View Projects
+                                        View Project
                                     </a>
                                 </div>
                             </div>

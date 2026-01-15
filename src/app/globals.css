@@ -8,6 +8,8 @@
 
   /* Neutral Palette (Single sansGray) */
   --color-sansGray: #333333;
+  /*Swiper*/
+  --swiper-arrow-color:#fff
 }
 
 @import "tailwindcss";
@@ -42,7 +44,7 @@ main {
 
 .main-swiper .swiper-button-next,
 .main-swiper .swiper-button-prev {
-  color: var(--color-sansRed);
+  color: var(--swiper-arrow-color);
   background: transparent !important;
   width: 40px;
   height: 40px;
