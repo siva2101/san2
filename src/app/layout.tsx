@@ -41,7 +41,7 @@ export default function RootLayout({
           {children}
         </main>
         <BackToTop />
-        <QuickContact />
+        {/* <QuickContact /> */}
         <Footer />
       </body>
     </html>

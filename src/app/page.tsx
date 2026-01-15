@@ -11,8 +11,8 @@ import Projects from "./projects/page";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="p-4 md:p-6 lg:p-8">
+    <div className="flex flex-col min-h-screen px-4 md:px-8 lg:px-12">
+      <div className="">
         <HomeBanner />
       </div>
       {/* We can add a preview of projects below if needed, or keeping it clean for now */}

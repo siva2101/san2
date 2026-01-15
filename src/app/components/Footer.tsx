@@ -2,8 +2,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-sansGray text-white pt-12 pb-4 px-4 mt-12">
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <footer className="text-white pb-4 px-4 ">
+      {/* <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
         <div>
           <h3 className="mt-0 text-sansRed text-lg">About Us</h3>
           <p className="leading-relaxed text-sm">We are a creative agency dedicated to delivering exceptional digital solutions.</p>
@@ -36,8 +36,8 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-
-      <div className="border-t border-white/20 pt-6 text-center text-sm text-white/40">
+ */}
+      <div className="border-t border-sansGray/20 pt-6 text-center text-sm text-sansGray">
         <p>&copy; {currentYear} Sanskriti. All rights reserved.</p>
       </div>
     </footer>
