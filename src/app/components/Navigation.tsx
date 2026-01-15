@@ -69,21 +69,21 @@ export default function Navigation() {
 
   // Helper to determine active state
   const getLinkClass = (path: string, mobile = false) => {
-    const isActive = pathname === path || (path !== '/' && pathname?.startsWith(path));
-    const baseClass = "no-underline transition-colors";
+    const isActive = pathname === path;
+    const baseClass = "relative no-underline transition-colors py-2";
 
     if (mobile) {
-      return `block py-4 px-6 ${isActive ? 'text-sansGray' : 'text-sansGray hover:text-black hover:bg-white/5'}`;
+      return `block py-4 px-6 ${isActive ? 'text-sansGray font-bold' : 'text-sansGray hover:text-black hover:bg-white/5'}`;
     }
 
-    return `${baseClass} font-medium ${isActive ? 'text-sansGray' : 'text-sansGray hover:text-black'}`;
+    return `${baseClass} font-medium ${isActive ? 'text-sansGray2 cursor-default pointer-events-none' : 'text-sansGray hover:text-black'}`;
   };
 
   return (
     <>
       <nav className={navClasses}>
         <div className="max-w-screen-xl mx-auto">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center gap-3 no-underline transition-opacity hover:opacity-80">
                 <Image
@@ -104,18 +104,27 @@ export default function Navigation() {
             {/* Desktop Navigation */}
             <ul className="flex gap-8 list-none m-0 p-0 hidden lg:flex items-center">
               <li>
-                <Link href="/" className={getLinkClass('/')}>
+                <Link href="/" className={getLinkClass('/')} onClick={(e) => pathname === '/' && e.preventDefault()}>
                   Home
+                  {pathname === '/' && (
+                    <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
+                  )}
                 </Link>
               </li>
               <li>
-                <Link href="/" className={getLinkClass('/about')}>
+                <Link href="/about" className={getLinkClass('/about')} onClick={(e) => pathname === '/about' && e.preventDefault()}>
                   About
+                  {pathname === '/about' && (
+                    <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
+                  )}
                 </Link>
               </li>
               <li className="relative group">
-                <Link href="/" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
+                <Link href="/projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`} onClick={(e) => pathname?.startsWith('/projects') && e.preventDefault()}>
                   Our Projects
+                  {pathname?.startsWith('/projects') && (
+                    <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
+                  )}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -137,8 +146,11 @@ export default function Navigation() {
                 </div>*/}
               </li>
               <li>
-                <Link href="/" className={getLinkClass('/contact')}>
+                <Link href="/contact" className={getLinkClass('/contact')} onClick={(e) => pathname === '/contact' && e.preventDefault()}>
                   Contact Us
+                  {pathname === '/contact' && (
+                    <span className="absolute bottom-[5px] left-0 w-full h-[2px] bg-sansRed"></span>
+                  )}
                 </Link>
               </li>
             </ul>
