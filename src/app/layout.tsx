@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-  themeColor: "#E35336",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
