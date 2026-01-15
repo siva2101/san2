@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect, useRef, useMemo } from "react";
 import { usePathname } from "next/navigation";
 import { projects } from "@/data/projects";
@@ -83,9 +84,16 @@ export default function Navigation() {
       <nav className={navClasses}>
         <div className="max-w-screen-xl mx-auto">
           <div className="flex items-center justify-between">
-            <div>
-              <Link href="/" className="text-sansRed hover:text-sansRed font-bold text-2xl no-underline transition-colors">
-                [LOGO]
+            <div className="flex-shrink-0">
+              <Link href="/" className="inline-block transition-opacity hover:opacity-80">
+                <Image
+                  src="/images/logo.png"
+                  alt="Sanskriti Architects Logo"
+                  width={180}
+                  height={50}
+                  className="h-10 w-auto object-contain md:h-12"
+                  priority
+                />
               </Link>
             </div>
 
