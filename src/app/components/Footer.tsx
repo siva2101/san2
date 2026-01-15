@@ -23,9 +23,9 @@ export default function Footer() {
           {/* Links & Socials */}
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="flex gap-6">
-              <Link href="/" className="no-underline hover:text-sansRed transition-colors">About</Link>
-              <Link href="/" className="no-underline hover:text-sansRed transition-colors">Projects</Link>
-              <Link href="/" className="no-underline hover:text-sansRed transition-colors">Contact</Link>
+              <Link href="/about" className="no-underline hover:text-sansRed transition-colors">About</Link>
+              <Link href="/projects" className="no-underline hover:text-sansRed transition-colors">Projects</Link>
+              <Link href="/contact" className="no-underline hover:text-sansRed transition-colors">Contact</Link>
             </div>
 
             <div className="flex items-center gap-5 border-t border-sansGray/10 md:border-0 pt-4 md:pt-0">
