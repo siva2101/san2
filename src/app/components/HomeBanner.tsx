@@ -92,7 +92,7 @@ export default function HomeBanner() {
                                 </p>
                                 <div className="pt-6">
                                     <a
-                                        href="/"
+                                        href="/projects"
                                         className="inline-block px-8 py-3 bg-sansRed hover:bg-sansRed text-white font-medium rounded transition-colors duration-300"
                                     >
                                         View Project
