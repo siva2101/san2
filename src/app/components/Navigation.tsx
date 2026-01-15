@@ -85,15 +85,19 @@ export default function Navigation() {
         <div className="max-w-screen-xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
-              <Link href="/" className="inline-block transition-opacity hover:opacity-80">
+              <Link href="/" className="flex items-center gap-3 no-underline transition-opacity hover:opacity-80">
                 <Image
                   src="/images/logo.png"
                   alt="Sanskriti Architects Logo"
-                  width={180}
-                  height={50}
-                  className="h-10 w-auto object-contain md:h-12"
+                  width={150}
+                  height={40}
+                  className="h-8 w-auto object-contain md:h-10"
                   priority
                 />
+                <span className="text-sansRed font-sans text-lg md:text-xl tracking-tight uppercase flex gap-1.5">
+                  <span className="font-bold">Sanskriti</span>
+                  <span className="font-light">Architects</span>
+                </span>
               </Link>
             </div>
 
