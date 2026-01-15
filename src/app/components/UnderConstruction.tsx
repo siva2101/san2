@@ -48,7 +48,7 @@ export default function UnderConstruction() {
                 <div className="flex justify-center gap-4 overflow-hidden py-4 opacity-20 select-none pointer-events-none">
 
                     <span className="text-[12px] font-bold uppercase whitespace-nowrap">
-                        Design in Progress /// Building Excellence /// Sanskriti Architects
+                        Design in Progress /// Sanskriti Architects
                     </span>
 
                 </div>
