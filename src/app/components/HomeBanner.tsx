@@ -38,14 +38,14 @@ const bannerSlides = [
 
 export default function HomeBanner() {
     return (
-        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-sansGray rounded-3xl overflow-hidden shadow-2xl">
+        <section className="relative w-full h-[600px] md:h-[calc(100vh-80px)] bg-sansGray overflow-hidden shadow-2xl">
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 50000,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -95,7 +95,7 @@ export default function HomeBanner() {
                                 </p>
                                 <div className="pt-6">
                                     <a
-                                        href="/projects"
+                                        href="/"
                                         className="inline-block px-8 py-3 bg-sansRed hover:bg-sansRed text-white font-medium rounded transition-colors duration-300"
                                     >
                                         View Projects

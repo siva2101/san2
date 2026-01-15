@@ -63,7 +63,7 @@ export default function Navigation() {
   // top-0: pinned to top
   // transition-transform: smooth animation
   // translate logic: moves it out of view or keeps it in view
-  const navClasses = `bg-sansGray p-4 sticky top-0 z-50 transition-transform duration-300 ${isVisible || isOpen ? "translate-y-0" : "-translate-y-full"
+  const navClasses = `p-4 md:px-8 lg:px-12 sticky top-0 z-50 bg-white transition-transform duration-300 ${isVisible || isOpen ? "translate-y-0" : "-translate-y-full"
     }`;
 
   // Helper to determine active state
@@ -72,10 +72,10 @@ export default function Navigation() {
     const baseClass = "no-underline transition-colors";
 
     if (mobile) {
-      return `block py-4 px-6 ${isActive ? 'text-sansRed' : 'text-white hover:text-sansRed hover:bg-white/5'}`;
+      return `block py-4 px-6 ${isActive ? 'text-sansGray' : 'text-sansGray hover:text-black hover:bg-white/5'}`;
     }
 
-    return `${baseClass} font-medium ${isActive ? 'text-sansRed' : 'text-white hover:text-sansRed'}`;
+    return `${baseClass} font-medium ${isActive ? 'text-sansGray' : 'text-sansGray hover:text-black'}`;
   };
 
   return (
@@ -97,18 +97,18 @@ export default function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className={getLinkClass('/about')}>
+                <Link href="/" className={getLinkClass('/about')}>
                   About
                 </Link>
               </li>
               <li className="relative group">
-                <Link href="/projects" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
+                <Link href="/" className={`flex items-center gap-1 ${getLinkClass('/projects')}`}>
                   Our Projects
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </Link>
-                {/* Flyout Submenu */}
+                {/* Flyout Submenu 
                 <div className="absolute left-0 top-full pt-4 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <ul className="bg-white rounded-lg shadow-xl overflow-hidden py-2 m-0 list-none border border-gray-100">
                     {categories.map((category) => (
@@ -122,10 +122,10 @@ export default function Navigation() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div>*/}
               </li>
               <li>
-                <Link href="/contact" className={getLinkClass('/contact')}>
+                <Link href="/" className={getLinkClass('/contact')}>
                   Contact Us
                 </Link>
               </li>
@@ -134,12 +134,12 @@ export default function Navigation() {
             {/* Hamburger Menu Button */}
             <button
               className="flex flex-col gap-1.5 bg-transparent border-0 cursor-pointer p-0 lg:hidden"
-              onClick={() => setIsOpen(!isOpen)}
+              // onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              <span className="w-6 h-0.5 bg-white block transition-all"></span>
-              <span className="w-6 h-0.5 bg-white block transition-all"></span>
-              <span className="w-6 h-0.5 bg-white block transition-all"></span>
+              <span className="w-6 h-0.5 bg-sansGray block transition-all"></span>
+              <span className="w-6 h-0.5 bg-sansGray block transition-all"></span>
+              <span className="w-6 h-0.5 bg-sansGray block transition-all"></span>
             </button>
           </div>
         </div>
